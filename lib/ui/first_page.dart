@@ -1,13 +1,17 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/model/custum_color.dart';
 import 'package:flutter_app/ui/async_page.dart';
 import 'package:flutter_app/ui/http/http_page.dart';
 import 'package:flutter_app/ui/inherited_widget/counter_page.dart';
 import 'package:flutter_app/ui/inherited_widget/inherited_counter.dart';
 import 'package:flutter_app/ui/list_exam_page.dart';
+import 'package:flutter_app/ui/provider/color_provider.dart';
 import 'package:flutter_app/ui/provider/counter_provider_page.dart';
 import 'package:flutter_app/ui/quiz_page.dart';
+import 'package:flutter_app/ui/shop_page.dart';
 import 'package:flutter_app/ui/stream_page.dart';
+import 'package:provider/provider.dart';
 
 class FirstPage extends StatelessWidget {
   @override
@@ -84,6 +88,17 @@ class FirstPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => CounterProviderPage()),
+                );
+              },
+            ),
+            ListTile(
+              title: Text('프로바이더 장바구니 활용'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChangeNotifierProvider<ColorProvider>(
+                      create: (context)=>ColorProvider(),
+                      child: ShopPage())),
                 );
               },
             ),

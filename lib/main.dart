@@ -11,14 +11,7 @@ bool isMarried;
 
 void main() {
   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider.value(
-          value: Counter(),
-        ),
-      ],
-      child: MyApp(),
-    )
+    MyApp()
   );
 }
 
